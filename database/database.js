@@ -11,11 +11,13 @@ connection.connect((err) => {
 });
 
 class DB{
-	executeAsync(sql){
+	executeAsync(sql, res){
 		return new Promise((resolve, reject) => {
 			connection.query(sql, (err, result) => {
 				if(err){
 					console.log(sql);
+					res.sendStatus(500);
+					return;
 				} else {
 					resolve (result);
 				}
