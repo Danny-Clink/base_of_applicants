@@ -28,8 +28,9 @@ router.post('/insertApplicants', async (req, res) => {
 
 	if( !await validation.create(params)
 		.catch((err) => {
-			console.log(err);
-			res.sendStatus(500, err);
+			res.send({"statusCode": 500,
+				"ErrorName": err.name,
+				"ErrorDetails": err.details});
 		})) return;
 
 	Applicants.createApplicant(params, db, res);

@@ -9,7 +9,7 @@ module.exports = (sequelize, type) => {
 			type: type.STRING,
 			length: 250
 		},
-		birthday: {
+		year_of_birth: {
 			type: type.INTEGER
 		},
 		math: {
